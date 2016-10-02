@@ -1,0 +1,164 @@
+package com.empresa.modelo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "piso")
+public class Piso {
+	
+	@Id
+	@Column(name = "idpiso", nullable = false)
+	private int idpiso;
+	
+	@Column(name = "metroscuadrados", nullable = false)
+	private int metroscuadrados;
+	
+	@Column(name = "numero", nullable = false)
+	private int numero;
+
+	@Column(name = "letra", nullable = false)
+	private String letra;
+
+	@Column(name = "planta", nullable = false)
+	private int planta;
+	
+	@Column(name = "ubicacion", nullable = false)
+	private String ubicacion;
+
+	@Column(name = "calidad", nullable = false)
+	private String calidad;
+
+	@Column(name = "numhabitaciones", nullable = false)
+	private int numhabitaciones;
+	
+	@Column(name = "garaje", nullable = false)
+	private boolean garaje;
+	
+	@Column(name = "precio", nullable = false)
+	private int precio;
+	
+	@Column(name = "orientacion", nullable = false)
+	private String orientacion;
+
+	@Column(name="dnivecino")
+	private String dnivecino;
+	
+	public int getIdpiso() {
+		return idpiso;
+	}
+
+	public void setIdpiso(int idpiso) {
+		this.idpiso = idpiso;
+	}
+
+	public int getMetroscuadrados() {
+		return metroscuadrados;
+	}
+
+	public void setMetroscuadrados(int metroscuadrados) {
+		this.metroscuadrados = metroscuadrados;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	
+	
+	public String getLetra() {
+		return letra;
+	}
+
+	public void setLetra(String letra) {
+		if(letra.length()<=1){
+		this.letra = letra;
+		}else{
+			System.out.println("ERROR");
+		}
+	}
+	
+
+	public int getPlanta() {
+		return planta;
+	}
+
+	public void setPlanta(int planta) {
+		this.planta = planta;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+
+	public String getCalidad() {
+		return calidad;
+	}
+
+	public void setCalidad(String calidad) {
+		this.calidad = calidad;
+	}
+
+	
+	public int getNumhabitaciones() {
+		return numhabitaciones;
+	}
+
+	public void setNumhabitaciones(int numhabitaciones) {
+		this.numhabitaciones = numhabitaciones;
+	}
+
+	public boolean isGaraje() {
+		return garaje;
+	}
+
+	public void setGaraje(boolean garaje) {
+		this.garaje = garaje;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public String getOrientacion() {
+		return orientacion;
+	}
+
+	public void setOrientacion(String orientacion) {
+		this.orientacion = orientacion;
+	}
+
+	public String getDnivecino() {
+		return dnivecino;
+	}
+
+	public void setDnivecino(String dnivecino) {
+	
+		if(dnivecino.length()<=0){
+			dnivecino="NULL";
+		}else{
+		
+			this.dnivecino = dnivecino;
+		
+		}
+	}
+
+	
+	
+
+	
+	
+}

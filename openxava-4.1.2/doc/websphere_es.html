@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>openxava - websphere_es</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<h1 id="toc0"><a name="WebSphere" style="display: inline-block;"></a>WebSphere</h1>
+OpenXava es usado en producción con WebSphere Application Server y WebSphere Portal.<br />
+Cualquier war generado por OpenXava usando la tarea ant <em>desplegarWar</em> puede ser desplegado en un WebSphere Application Server, y cualquier war generado usando <em>desplegarPortlets</em> puede ser desplegado en un WebSphere Portal.<br />
+Aquí tenemos algunos pantallazos de una aplicación OpenXava en WebSphere Portal:<br />
+<ul><li><a class="wiki_link" href="websphere-detail-screenshot.html">Ejemplo de modo detalle</a></li><li><a class="wiki_link" href="websphere-list-screenshot.html">Ejemplo de modo lista</a></li></ul>Comentarios:<br />
+<ul><li>No es aconsejable usar EJB2 (mejor usar Hibernate o EJB3 en su lugar), sin embargo OpenXava soporta EJB2 con CMP nativo para WebSphere, podemos verlo en las instrucciones <a class="wiki_link" href="websphere-ejb2_es.html">WebSphere EJB2</a> o <a class="wiki_link" href="websphere-portal-ejb2_es.html">WebSphere Portal EJB2</a>.</li><li>Si queremos usar EJB3 JPA necesitamos al menos un WebSphere 6.1.</li><li>WebSphere Application Server 5.0 está testeado con OpenXava hasta 1.2.1. No está certificado con OpenXava 2.x o superior.</li><li>WebSphere Portal 5.0 no está soportado.</li><li>Trabajar con WebSphere Application Server y WebSphere Portal requiere algo de experiencia.</li></ul>
+    </div>
+  </body>
+</html>

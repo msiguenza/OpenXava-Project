@@ -1,0 +1,164 @@
+abr 13, 2014 2:22:41 PM org.apache.catalina.startup.Embedded initDirs
+Grave: No puedo hallar carpeta temporal especificada en C:\Users\MIGUE\Desktop\openxava-4.1.2\tomcat\temp
+abr 13, 2014 2:22:42 PM org.apache.catalina.core.AprLifecycleListener init
+Información: La biblioteca nativa de Apache Tomcat basada en ARP que permite un rendimiento óptimo en entornos de desarrollo no ha sido hallada en java.library.path: C:\Program Files\Java\jdk1.7.0_45\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\PC Connectivity Solution\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Intel\DMIX;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Pinnacle\Shared Files\;C:\Program Files (x86)\Windows Live\Shared;;.
+abr 13, 2014 2:22:42 PM org.apache.coyote.http11.Http11Protocol init
+Información: Inicializando Coyote HTTP/1.1 en puerto http-8089
+abr 13, 2014 2:22:42 PM org.apache.catalina.startup.Catalina load
+Información: Initialization processed in 740 ms
+abr 13, 2014 2:22:42 PM org.apache.catalina.core.StandardService start
+Información: Arrancando servicio Catalina
+abr 13, 2014 2:22:42 PM org.apache.catalina.core.StandardEngine start
+Información: Starting Servlet Engine: Apache Tomcat/6.0.20
+abr 13, 2014 2:22:43 PM org.apache.coyote.http11.Http11Protocol start
+Información: Arrancando Coyote HTTP/1.1 en puerto http-8089
+abr 13, 2014 2:22:43 PM org.apache.jk.common.ChannelSocket init
+Información: JK: ajp13 listening on /0.0.0.0:8009
+abr 13, 2014 2:22:43 PM org.apache.jk.server.JkMain start
+Información: Jk running ID=0 time=0/60  config=null
+abr 13, 2014 2:22:43 PM org.apache.catalina.startup.Catalina start
+Información: Server startup in 1597 ms
+abr 13, 2014 2:23:24 PM org.directwebremoting.util.CommonsLoggingOutput info
+Información: DWR Version 2.0.5 starting.
+abr 13, 2014 2:23:24 PM org.directwebremoting.util.CommonsLoggingOutput info
+Información: - Servlet Engine: Apache Tomcat/6.0.20
+abr 13, 2014 2:23:24 PM org.directwebremoting.util.CommonsLoggingOutput info
+Información: - Java Version:   1.7.0_45
+abr 13, 2014 2:23:24 PM org.directwebremoting.util.CommonsLoggingOutput info
+Información: - Java Vendor:    Oracle Corporation
+abr 13, 2014 2:23:24 PM org.directwebremoting.util.CommonsLoggingOutput info
+Información: Probably not an issue: org.jdom.Document is not available so the jdom converter will not load. This is only an problem if you wanted to use it.
+abr 13, 2014 2:23:24 PM org.directwebremoting.util.CommonsLoggingOutput info
+Información: Probably not an issue: org.jdom.Element is not available so the jdom converter will not load. This is only an problem if you wanted to use it.
+abr 13, 2014 2:23:50 PM org.openxava.controller.ModuleManager <clinit>
+Información: OpenXava 4.1.2 (2011-4-11)
+abr 13, 2014 2:23:51 PM org.hibernate.annotations.common.Version <clinit>
+Información: Hibernate Commons Annotations 3.2.0.Final
+abr 13, 2014 2:23:52 PM org.hibernate.cfg.Environment <clinit>
+Información: Hibernate 3.6.1.Final
+abr 13, 2014 2:23:52 PM org.hibernate.cfg.Environment <clinit>
+Información: hibernate.properties not found
+abr 13, 2014 2:23:53 PM org.hibernate.cfg.Environment buildBytecodeProvider
+Información: Bytecode provider name : javassist
+abr 13, 2014 2:23:53 PM org.hibernate.cfg.Environment <clinit>
+Información: using JDK 1.4 java.sql.Timestamp handling
+abr 13, 2014 2:23:53 PM org.hibernate.ejb.Version <clinit>
+Información: Hibernate EntityManager 3.6.1.Final
+abr 13, 2014 2:23:53 PM org.hibernate.util.DTDEntityResolver resolveEntity
+Advertencia: recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+abr 13, 2014 2:23:54 PM org.hibernate.cfg.HbmBinder bindRootPersistentClassCommonValues
+Información: Mapping class: org.openxava.session.GalleryImage -> IMAGES
+abr 13, 2014 2:23:54 PM org.hibernate.cfg.AnnotationBinder bindClass
+Información: Binding entity from annotated class: org.openxava.escuela.modelo.Profesor
+abr 13, 2014 2:23:54 PM org.hibernate.cfg.annotations.EntityBinder bindTable
+Información: Bind entity org.openxava.escuela.modelo.Profesor on table Profesor
+abr 13, 2014 2:23:54 PM org.hibernate.validator.Version <clinit>
+Información: Hibernate Validator 3.1.0.GA
+abr 13, 2014 2:23:54 PM org.hibernate.validator.util.Version <clinit>
+Información: Hibernate Validator 4.1.0.Final
+abr 13, 2014 2:23:54 PM org.hibernate.validator.engine.resolver.DefaultTraversableResolver detectJPA
+Información: Instantiated an instance of org.hibernate.validator.engine.resolver.JPATraversableResolver.
+abr 13, 2014 2:23:54 PM org.hibernate.validator.engine.resolver.DefaultTraversableResolver detectJPA
+Información: Instantiated an instance of org.hibernate.validator.engine.resolver.JPATraversableResolver.
+abr 13, 2014 2:23:54 PM org.hibernate.validator.engine.resolver.DefaultTraversableResolver detectJPA
+Información: Instantiated an instance of org.hibernate.validator.engine.resolver.JPATraversableResolver.
+abr 13, 2014 2:23:54 PM org.hibernate.cfg.search.HibernateSearchEventListenerRegister enableHibernateSearch
+Información: Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+abr 13, 2014 2:23:54 PM org.hibernate.util.NamingHelper getInitialContext
+Información: JNDI InitialContext properties:{}
+abr 13, 2014 2:23:54 PM org.hibernate.connection.DatasourceConnectionProvider configure
+Información: Using datasource: java:comp/env/jdbc/MiEscuelaDS
+abr 13, 2014 2:23:54 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Database ->
+       name : HSQL Database Engine
+    version : 1.8.0
+      major : 1
+      minor : 8
+abr 13, 2014 2:23:54 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Driver ->
+       name : HSQL Database Engine Driver
+    version : 1.8.0
+      major : 1
+      minor : 8
+abr 13, 2014 2:23:55 PM org.hibernate.dialect.Dialect <init>
+Información: Using dialect: org.hibernate.dialect.HSQLDialect
+abr 13, 2014 2:23:55 PM org.hibernate.engine.jdbc.JdbcSupportLoader useContextualLobCreation
+Información: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+abr 13, 2014 2:23:55 PM org.hibernate.transaction.TransactionFactoryFactory buildTransactionFactory
+Información: Transaction strategy: org.hibernate.transaction.JDBCTransactionFactory
+abr 13, 2014 2:23:55 PM org.hibernate.transaction.TransactionManagerLookupFactory getTransactionManagerLookup
+Información: No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Automatic flush during beforeCompletion(): disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Automatic session close at end of transaction: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: JDBC batch size: 15
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: JDBC batch updates for versioned data: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Scrollable result sets: enabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: JDBC3 getGeneratedKeys(): disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Connection release mode: auto
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Default batch fetch size: 1
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Generate SQL with comments: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Order SQL updates by primary key: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Order SQL inserts for batching: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory createQueryTranslatorFactory
+Información: Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+abr 13, 2014 2:23:55 PM org.hibernate.hql.ast.ASTQueryTranslatorFactory <init>
+Información: Using ASTQueryTranslatorFactory
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Query language substitutions: {}
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: JPA-QL strict compliance: enabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Second-level cache: enabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Query cache: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory createRegionFactory
+Información: Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Optimize cache for minimal puts: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Structured second-level cache entries: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Statistics: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Deleted entity synthetic identifier rollback: disabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Default entity-mode: pojo
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Named query checking : enabled
+abr 13, 2014 2:23:55 PM org.hibernate.cfg.SettingsFactory buildSettings
+Información: Check Nullability in Core (should be disabled when Bean Validation is on): disabled
+abr 13, 2014 2:23:55 PM org.hibernate.impl.SessionFactoryImpl <init>
+Información: building session factory
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@5beb1172
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@25c68283
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [clob] overrides previous : org.hibernate.type.ClobType@ba279d5
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@ba279d5
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@57ec94ea
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@6d24bbbe
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@6a1eeed
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [blob] overrides previous : org.hibernate.type.BlobType@714d0d01
+abr 13, 2014 2:23:55 PM org.hibernate.type.BasicTypeRegistry register
+Información: Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@714d0d01
+abr 13, 2014 2:23:55 PM org.hibernate.id.UUIDHexGenerator <init>
+Advertencia: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+abr 13, 2014 2:23:55 PM org.hibernate.impl.SessionFactoryObjectFactory addInstance
+Información: Not binding factory to JNDI, no JNDI name configured

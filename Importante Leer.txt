@@ -1,0 +1,11 @@
+Para poder ejecutar el proyecto, se deben realizar los siguientes pasos:
+
+
+	- En primer lugar, iniciar el servidor Tomcat haciendo clic en el .BAT start-tomcat
+
+	- Abrir eclipse y seleccionar el workspace que se encuentra en el interior de la carpeta Openxava-4.1.2
+
+	- Ejecutar el proyecto seleccionando Empresa.build en el icono del play de la aplicación.
+
+	- Accedemos a la aplicación mediante nuestro navegador y tecleamos la ruta desde localhost (Las rutas predefinidas
+	  se encuentran  en un archivo de texto adjunto con el proyecto.)

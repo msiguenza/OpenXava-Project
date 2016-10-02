@@ -1,0 +1,368 @@
+<html>
+  <head>
+    <title>openxava - application_en</title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#Chapter 8: Application">Chapter 8: Application</a></div>
+<div style="margin-left: 2em;"><a href="#Chapter 8: Application-Typical module example">Typical module example</a></div>
+<div style="margin-left: 2em;"><a href="#Chapter 8: Application-Default modules (new in v2.2.2)">Default modules (new in v2.2.2)</a></div>
+<div style="margin-left: 2em;"><a href="#Chapter 8: Application-Only detail module">Only detail module</a></div>
+<div style="margin-left: 2em;"><a href="#Chapter 8: Application-Only list module">Only list module</a></div>
+<div style="margin-left: 2em;"><a href="#Chapter 8: Application-Documentation module">Documentation module</a></div>
+<div style="margin-left: 2em;"><a href="#Chapter 8: Application-Read only module">Read only module</a></div>
+</div>
+<a class="wiki_link" href="overview_en.html">1.Overview</a> | <a class="wiki_link" href="my-first-ox-project_en.html">2.My first project</a> | <a class="wiki_link" href="model_en.html">3.Model</a> | <a class="wiki_link" href="view_en.html">4.View</a> | <a class="wiki_link" href="tab_en.html">5.Tabular data</a> | <a class="wiki_link" href="mapping_en.html">6.Object/relational mapping</a> | <a class="wiki_link" href="controllers_en.html">7.Controllers</a> | <strong>8.Application</strong> | <a class="wiki_link" href="customizing_en.html">9.Customizing</a><br />
+<h1 id="toc0"><a name="Chapter 8: Application" style="display: inline-block;"></a>Chapter 8: Application</h1>
+ An application is the software that the final user can use. For now you have seen how to define the pieces that make up an application (mainly the components and the actions), now you will learn how to assemble these pieces in order to create applications.<br />
+The definition of an OpenXava application is given in the file <em>application.xml</em> that can be found in the <em>xava</em> directory of your project.<br />
+The file syntax is:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;application</span></span>
+<span class="sc3">    <span class="re0">name</span>=<span class="st0">&quot;name&quot;</span>                   &lt;!-- 1 --<span class="re2">&gt;</span></span>
+    label=&quot;label&quot;                 <span class="sc-1">&lt;!-- 2 --&gt;</span>
+&gt;
+    <span class="sc3"><span class="re1">&lt;default-module</span> ... <span class="re2">/&gt;</span></span> ...    <span class="sc-1">&lt;!-- 3  New in v2.2.2 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;module</span> ... <span class="re2">/&gt;</span></span> ...            <span class="sc-1">&lt;!-- 4 --&gt;</span>
+<span class="sc3"><span class="re1">&lt;/application<span class="re2">&gt;</span></span></span></pre>
+
+<ol><li><strong>name</strong> (required): Name of the application.</li><li><strong>label</strong> (optional): It's much better to use i18n files.</li><li><strong>default-module</strong> (one, optional): <em>New in v2.2.2</em>. For defining the controllers for the default (automatically generated for each component) modules.</li><li><strong>module</strong> (several, optional): Each module executable by final user.</li></ol>In short, an application is a set of modules. Let's see how define a module:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;module</span></span>
+<span class="sc3">    <span class="re0">name</span>=<span class="st0">&quot;name&quot;</span>                    &lt;!--  1 --<span class="re2">&gt;</span></span>
+    folder=&quot;folder&quot;                <span class="sc-1">&lt;!--  2 --&gt;</span>
+    label=&quot;label&quot;                  <span class="sc-1">&lt;!--  3 --&gt;</span>
+    description=&quot;description&quot;      <span class="sc-1">&lt;!--  4 --&gt;</span>
+&gt;
+    <span class="sc3"><span class="re1">&lt;env-var</span> ... <span class="re2">/&gt;</span></span> ...            <span class="sc-1">&lt;!--  5 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;model</span> ... <span class="re2">/&gt;</span></span>                  <span class="sc-1">&lt;!--  6 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;view</span> ... <span class="re2">/&gt;</span></span>                   <span class="sc-1">&lt;!--  7 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;web-view</span> ... <span class="re2">/&gt;</span></span>               <span class="sc-1">&lt;!--  8 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;tab</span> ... <span class="re2">/&gt;</span></span>                    <span class="sc-1">&lt;!--  9 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;controller</span> ... <span class="re2">/&gt;</span></span> ...         <span class="sc-1">&lt;!-- 10 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;mode-controller</span> ... <span class="re2">/&gt;</span></span>        <span class="sc-1">&lt;!-- 11 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;doc</span> ... <span class="re2">/&gt;</span></span>                    <span class="sc-1">&lt;!-- 12 --&gt;</span>
+<span class="sc3"><span class="re1">&lt;/module<span class="re2">&gt;</span></span></span></pre>
+
+<ol><li><strong>name</strong> (required): Unique identifier of the module within this application.</li><li><strong>folder</strong> (optional): Folder in which the module will reside. It's a tip to classify the modules. For the moment it's used to generate a folder structure for JetSpeed2 but its use can be amplified in future. You can use / or . to indicate subfolders (for example, &quot;invoicing/reports&quot; or &quot;invoicing.reports&quot;).</li><li><strong>label</strong> (optional): Short name to be shown to the user. It's much better to use i18n files.</li><li><strong>description</strong> (optional): Long description to be shown to the user. It's much better to use i18n files.</li><li><strong>env-var</strong> (several, optional): Allows you to define variables with a value that can be accessed by actions. Thus you can have actions configurable by module.</li><li><strong>model</strong> (one, optional): Name of the component used in this module. If you leave it blank, then it is required to set the value to <em>web-view</em>.</li><li><strong>view</strong> (one, optional): The view used to display the detail. If you leave it blank, then the default view will be used.</li><li><strong>web-view</strong> (one, optional): Allows you to define a JSP page to be used as a view.</li><li><strong>tab</strong> (one, optional): The tab used in list mode. If you do not specify it, then the default tab will be used.</li><li><strong>controller</strong> (several, optional): Controllers with the available actions used initially.</li><li><strong>mode-controller</strong> (one, optional): Allows to define the behavior to switch from detail to list mode and vice versa, as well as to define a module without detail and view (with no modes). <em>New in v4m5</em>: There is a new mode, split. Since v4m5 the available mode controllers are <em>Mode</em> (detail - list - split), <em>DetailList</em>, <em>DetailOnly</em>, <em>ListOnly</em> and <em>SplitOnly</em>.</li><li><strong>doc</strong> (one, optional): It's mutually exclusive with all other elements. It allows you to define a module that contains documentation only and no logic. Useful for generating informational portlets for your application.</li></ol><h2 id="toc1"><a name="Chapter 8: Application-Typical module example" style="display: inline-block;"></a>Typical module example</h2>
+ Defining a simple module can be like this:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;application</span> <span class="re0">name</span>=<span class="st0">&quot;Management&quot;</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;module</span> <span class="re0">name</span>=<span class="st0">&quot;Warehouse&quot;</span> <span class="re0">folder</span>=<span class="st0">&quot;warehousing&quot;</span><span class="re2">&gt;</span></span>
+        <span class="sc3"><span class="re1">&lt;model</span> <span class="re0">name</span>=<span class="st0">&quot;Warehouse&quot;</span><span class="re2">/&gt;</span></span>
+        <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;Typical&quot;</span><span class="re2">/&gt;</span></span>
+        <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;Warehouse&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;/module<span class="re2">&gt;</span></span></span>
+    ...
+<span class="sc3"><span class="re1">&lt;/application<span class="re2">&gt;</span></span></span></pre>
+
+In this case you have a module that allows the user to create, to delete, to update, to search, to generate PDF reports and to export to Excel the warehouses data (thanks to <em>Typical</em> controller) and also to execute actions only for warehouses (thank to <em>Warehouse</em> controller). In the case the system generates a module structure (as in JetSpeed2 case) this module will be in folder &quot;warehousing&quot;.<br />
+In order to execute this module you need to open your browser and go to:<br />
+<a class="wiki_link_ext" href="http://localhost:8080/Management/xava/module.jsp?application=Management&amp;module=Warehouse" rel="nofollow">http://localhost:8080/Management/xava/module.jsp?application=Management&amp;module=Warehouse</a><br />
+Also a portlet is generated to allow you to deploy the module as a JSR-168 portlet in a Java portal.<br />
+<h2 id="toc2"><a name="Chapter 8: Application-Default modules (new in v2.2.2)" style="display: inline-block;"></a>Default modules <em>(new in v2.2.2)</em></h2>
+ OpenXava assumes a default module for each component in the application, although the module is not explicitly defined in applicaction.xml.<br />
+That is, if you define a component Invoice.xml, you can open your browser and go to:<br />
+<a class="wiki_link_ext" href="http://localhost:8080/Management/xava/module.jsp?application=Management&amp;module=Invoice" rel="nofollow">http://localhost:8080/Management/xava/module.jsp?application=Management&amp;module=Invoice</a><br />
+Also a portlet is generated to allow you to deploy the module as a JSR-168 portlet in a Java portal.<br />
+And all this without defining it in application.xml.<br />
+The controller for these default modules will be Typical, but you can change this default value using the default-module element in application.xml, in this way:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;application</span> <span class="re0">name</span>=<span class="st0">&quot;Management&quot;</span><span class="re2">&gt;</span></span>
+&nbsp;
+    <span class="sc3"><span class="re1">&lt;default-module<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;ManagementCRUD&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;/default-module<span class="re2">&gt;</span></span></span>
+&nbsp;
+<span class="sc3"><span class="re1">&lt;/application<span class="re2">&gt;</span></span></span></pre>
+
+In this case all the default modules of the <em>Management</em> application will have the controller <em>ManagementCRUD</em> assigned to them.<br />
+If you want that certain module does not use these default controllers, you have two options:<br />
+<ol><li>To define a controller in your <em>controllers.xml</em> with the same name of the component.</li><li>To define explicitly the module in <em>application.xml</em>, as it's <a class="wiki_link" href="application_en.html#toc1">explained above</a>.</li></ol>To sum up, if you define a component, named <em>Customer</em>, for example, then you have a module named <em>Customer</em>, and also a portlet. This module will be defined in one of this ways:<br />
+<ol><li>If you define a module named <em>Customer</em> in <em>application.xml</em> then this module will be the valid one, else...</li><li>If you define a controller named <em>Customer</em> in <em>controllers.xml</em> a module will generated using the controller <em>Customer</em> as controller and the component <em>Customer</em> as model, else..</li><li>3.If you define a <em>default-module</em> element in your <em>application.xml</em> then a module will generated using the controllers in <em>default-module</em> and the component <em>Customer</em> as model, else ...</li><li>as fallback a module with <em>Typical</em> as controller and <em>Customer</em> as model will be assumed.</li></ol><h2 id="toc3"><a name="Chapter 8: Application-Only detail module" style="display: inline-block;"></a>Only detail module</h2>
+ A module with only detail mode, without list, is defined this way <em>(new in v4m5)</em>:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;module</span> <span class="re0">name</span>=<span class="st0">&quot;InvoiceNoList&quot;</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;model</span> <span class="re0">name</span>=<span class="st0">&quot;Invoice&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;Typical&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;mode-controller</span> <span class="re0">name</span>=<span class="st0">&quot;DetailOnly&quot;</span><span class="re2">/&gt;</span></span>        <span class="sc-1">&lt;!-- 1 --&gt;</span>
+<span class="sc3"><span class="re1">&lt;/module<span class="re2">&gt;</span></span></span></pre>
+
+Just use <em>DetailOnly</em> (1) as <em>mode-controller</em>.<br />
+If you are using a version prior to v4m5 you have to define a detail only module in this way:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;module</span> <span class="re0">name</span>=<span class="st0">&quot;InvoiceNoList&quot;</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;model</span> <span class="re0">name</span>=<span class="st0">&quot;Invoice&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;Typical&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;mode-controller</span> <span class="re0">name</span>=<span class="st0">&quot;Void&quot;</span><span class="re2">/&gt;</span></span>        <span class="sc-1">&lt;!-- 1 --&gt;</span>
+<span class="sc3"><span class="re1">&lt;/module<span class="re2">&gt;</span></span></span></pre>
+
+<em>Void</em> (1) mode controller is for removing the &quot;detail – list&quot; links; in this case by default the module uses detail mode only. This way though deprecated is still supported.<br />
+<h2 id="toc4"><a name="Chapter 8: Application-Only list module" style="display: inline-block;"></a>Only list module</h2>
+ A module with only list mode, without detail, is defined this way <em>(new in v4m5)</em>:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;module</span> <span class="re0">name</span>=<span class="st0">&quot;FamilyListOnly&quot;</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;env-var</span> <span class="re0">name</span>=<span class="st0">&quot;XAVA_LIST_ACTION&quot;</span> <span class="re0">value</span>=<span class="st0">&quot;&quot;</span><span class="re2">/&gt;</span></span>  <span class="sc-1">&lt;!-- 1  New in v2.0.4 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;model</span> <span class="re0">name</span>=<span class="st0">&quot;Family&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;Typical&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;mode-controller</span> <span class="re0">name</span>=<span class="st0">&quot;ListOnly&quot;</span><span class="re2">/&gt;</span></span>           <span class="sc-1">&lt;!-- 2 --&gt;</span>
+<span class="sc3"><span class="re1">&lt;/module<span class="re2">&gt;</span></span></span></pre>
+
+<em>ListOnly</em> (2) mode controller is for removing the &quot;detail – list – both&quot; links and inititializing the module in list mode. Setting XAVA_LIST_ACTION to empty string (1) the detail link in each row is missing <em>(new in v2.0.4)</em>.<br />
+If you are using a version prior to v4m5 you have to define a list only module in this way:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;module</span> <span class="re0">name</span>=<span class="st0">&quot;FamilyListOnly&quot;</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;env-var</span> <span class="re0">name</span>=<span class="st0">&quot;XAVA_LIST_ACTION&quot;</span> <span class="re0">value</span>=<span class="st0">&quot;&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;model</span> <span class="re0">name</span>=<span class="st0">&quot;Family&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;Typical&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;ListOnly&quot;</span><span class="re2">/&gt;</span></span>                   <span class="sc-1">&lt;!-- 1 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;mode-controller</span> <span class="re0">name</span>=<span class="st0">&quot;Void&quot;</span><span class="re2">/&gt;</span></span>                  <span class="sc-1">&lt;!-- 2 --&gt;</span>
+<span class="sc3"><span class="re1">&lt;/module<span class="re2">&gt;</span></span></span></pre>
+
+<em>Void</em> (2) mode controller is for removing the &quot;detail – list&quot; links. Furthermore on defining <em>ListOnly</em> (1) as controller the module changes to list mode on init, so this is an only list module. This way though deprecated is still supported.<br />
+<h2 id="toc5"><a name="Chapter 8: Application-Documentation module" style="display: inline-block;"></a>Documentation module</h2>
+ A documentation module can only display a HTML document. It's easy to define:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;module</span> <span class="re0">name</span>=<span class="st0">&quot;Description&quot;</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;doc</span> <span class="re0">url</span>=<span class="st0">&quot;doc/description&quot;</span> <span class="re0">languages</span>=<span class="st0">&quot;en,es&quot;</span><span class="re2">/&gt;</span></span>
+<span class="sc3"><span class="re1">&lt;/module<span class="re2">&gt;</span></span></span></pre>
+
+This module shows the document <em>web/doc/description_en.html</em> or <em>web/doc/description_es.html</em> depending on the browser language. If the browser language is not English nor Spanish then it assumes English (the first specified language). If you do not specify the language, then the document <em>web/doc/description.html</em> is shown.<br />
+This is useful for informational portlets. This type of module has no effect outside a portal environment.<br />
+<h2 id="toc6"><a name="Chapter 8: Application-Read only module" style="display: inline-block;"></a>Read only module</h2>
+ A read only module, that is only for consulting data, not for modifying, can be defined as following:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {font-family:monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+-->
+</style><pre class="xml"><span class="sc3"><span class="re1">&lt;module</span> <span class="re0">name</span>=<span class="st0">&quot;CustomerReadOnly&quot;</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;env-var</span> <span class="re0">name</span>=<span class="st0">&quot;XAVA_SEARCH_ACTION&quot;</span> <span class="re0">value</span>=<span class="st0">&quot;CRUD.searchReadOnly&quot;</span><span class="re2">/&gt;</span></span>  <span class="sc-1">&lt;!-- 1 --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;model</span> <span class="re0">name</span>=<span class="st0">&quot;Customer&quot;</span><span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">name</span>=<span class="st0">&quot;Print&quot;</span><span class="re2">/&gt;</span></span>                                        <span class="sc-1">&lt;!-- 2 --&gt;</span>
+<span class="sc3"><span class="re1">&lt;/module<span class="re2">&gt;</span></span></span></pre>
+
+Using <em>CRUD.searchReadOnly</em> (1) the user cannot edit the data, and using only <em>Print</em> controller (2) (without <em>CRUD</em> or <em>Typical</em>) the actions for saving, deleting, etc are not available. This is a simply consulting module.<br />
+<br />
+The syntax for <em>application.xml</em> is not difficult. You can see more examples in <em>OpenXavaTest/xava/application.xml</em>.
+    </div>
+  </body>
+</html>

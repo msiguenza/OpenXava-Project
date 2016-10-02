@@ -1,0 +1,49 @@
+package org.openxava.micomunidad.modelo;
+
+import java.sql.*;
+
+import javax.persistence.*;
+import org.openxava.annotations.*;
+
+/**
+ * 
+ * @author Miguel Angel Siguenza
+ */
+
+@Entity
+@Table(name="prueba")
+public class prueba {
+
+	
+	@Id @Column(name="idprueba") @Required   
+	private int id;
+	
+	@Column(name="pruebacomentario")
+	private String pruebacomentario;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPruebacomentario() {
+		return pruebacomentario;
+	}
+
+	public void setPruebacomentario(String pruebacomentario) {
+		this.pruebacomentario = pruebacomentario;
+	}
+
+	
+}
+
+
+
+
+
+
+	
+

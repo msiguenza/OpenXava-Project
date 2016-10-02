@@ -1,0 +1,139 @@
+package org.openxava.micomunidad.modelo;
+
+import java.sql.*;
+
+import javax.persistence.*;
+import org.openxava.annotations.*;
+
+/**
+ * 
+ * @author Miguel Angel Siguenza
+ */
+
+@Entity
+@Table(name="piso")
+public class prueba {
+
+	
+	@Id @Column(name="idpiso") @Required   
+	private int id;
+	
+	@Column(name="metroscuadrados")
+	private int metroscuadrados;
+
+	@Column(name="numero")
+	private int numero;
+	
+	@Column(name="planta")
+	private int planta;
+	
+	@Column(name="ubicacion")
+	private String ubicacion;
+	
+	@Column(name="calidad")
+	private String calidad;
+	
+	@Column(name="numhabitaciones")
+	private int numhabitaciones;
+
+	@Column(name="garaje")
+	private boolean garaje;
+	
+	@Column(name="precio")
+	private int precio;
+	
+	@Column(name="orientacion")
+	private String orientacion;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getMetroscuadrados() {
+		return metroscuadrados;
+	}
+
+	public void setMetroscuadrados(int metroscuadrados) {
+		this.metroscuadrados = metroscuadrados;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public int getPlanta() {
+		return planta;
+	}
+
+	public void setPlanta(int planta) {
+		this.planta = planta;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+
+	public String getCalidad() {
+		return calidad;
+	}
+
+	public void setCalidad(String calidad) {
+		this.calidad = calidad;
+	}
+
+	public int getNumhabitaciones() {
+		return numhabitaciones;
+	}
+
+	public void setNumhabitaciones(int numhabitaciones) {
+		this.numhabitaciones = numhabitaciones;
+	}
+
+	public boolean isGaraje() {
+		return garaje;
+	}
+
+	public void setGaraje(boolean garaje) {
+		this.garaje = garaje;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public String getOrientacion() {
+		return orientacion;
+	}
+
+	public void setOrientacion(String orientacion) {
+		this.orientacion = orientacion;
+	}
+
+	
+	
+	
+}
+
+
+
+
+
+
+	
+
